@@ -108,7 +108,11 @@ function createErrorHandler(formData) {
     // "errors" (see `utils.toErrorSchema`).
     __errors: [],
     addError(message) {
-      this.__errors.push(message);
+      if(message){
+        this.__errors.push(message);
+      } else {
+        this.__errors.pop();
+      }
     },
   };
   if (isObject(formData)) {
